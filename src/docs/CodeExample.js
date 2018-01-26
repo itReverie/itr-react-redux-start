@@ -5,7 +5,7 @@ import javascript from 'highlight.js/lib/languages/javascript'
 
 // This way is easy, but adds 170K gzipped to bundle since all langs are included.
 // import Highlight from 'react-highlight';
-//It adds color and cool highlight sin our code in highlights
+//It adds color and cool highlights in our code in highlights
 class CodeExample extends React.Component {
   componentDidMount() {
     hljs.registerLanguage('javascript', javascript);
