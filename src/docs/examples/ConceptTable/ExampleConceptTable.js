@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import ConceptTable from 'components-app/ConceptTable/ConceptTable';
 
 
-/** Renders a table based on the concepts */
+/** Renders a table based on concepts */
 export default class ExampleConceptTable extends Component{
   render() {
 
     return (
             <ConceptTable
             width= {180}
-            height= {100}
+            height= {180}
             headerWidth= {50}
             rowHeight= {50}
              data={[

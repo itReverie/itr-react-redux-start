@@ -6,7 +6,8 @@ import 'react-virtualized/styles.css'; // only needs to be imported once
 
 export default class ConceptTable extends PureComponent {
 
-// Render your table. TODO: At the moment is hardcoded but it will be dynamic
+/** Renders a table based on concepts */
+// TODO: At the moment is hardcoded but it will be dynamic
 render(){
   return (<Table
     width={this.props.width}
@@ -44,7 +45,7 @@ ConceptTable.propTypes={
 
 ConceptTable.defaultProps={
   width: 400,
-  height : 100,
+  height : 400,
   headerWidth:20,
   rowHeight : 30,
   data : []
