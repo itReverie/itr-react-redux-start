@@ -1,27 +1,53 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './App.css';
 import ConceptTable from './components/ConceptTable/ConceptTable';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as conceptActions from './actions/conceptActions';
+import PropTypes from 'prop-types';
 
 
 
-class App extends Component {
+class App extends PureComponent {
 
+  constructor(props) {
+
+      super(props);
+       this.state ={
+         concepts: Object.assign({},this.props.concepts),
+         errors: {}
+       };
+    }
 
   render() {
-
-    // Table data as an array of objects
-    const list = [
-      { name: 'Anna', debt: 200000},
-      { name: 'Hugo', debt: 550000},
-      { name: 'Louis', debt: 130000}
-    ];
-
     return (
-      <div className="App">
-      <ConceptTable data={list}/>
+      <div>
+      <ConceptTable data={this.props.concepts}/>
       </div>
     )
   }
 }
 
-export default App;
+
+App.propTypes={
+  concepts: PropTypes.array.isRequired,
+  actions : PropTypes.object.isRequired
+};
+
+
+//-------------------------------------------------------------------
+//Redux connect section
+//-------------------------------------------------------------------
+function mapStateToProps(state) {
+  return {concepts: state.concepts};
+}
+
+
+function mapDispatchToProps (dispatch)
+{
+  return {
+    actions: bindActionCreators(conceptActions,dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
