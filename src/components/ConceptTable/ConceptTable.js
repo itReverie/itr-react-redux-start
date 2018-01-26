@@ -6,6 +6,12 @@ import 'react-virtualized/styles.css'; // only needs to be imported once
 
 export default class ConceptTable extends PureComponent {
 
+  // {this.props.data.map( (concept ) =>
+  //    <CryptoCurrencyManager key={currency.id}
+  //                           cryptoCurrency={currency}
+  //                           />
+  //  )}
+
 /** Renders a table based on concepts */
 // TODO: At the moment is hardcoded but it will be dynamic
 render(){

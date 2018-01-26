@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ConceptTable from 'components-app/ConceptTable/ConceptTable';
+import ConceptTable from 'components-app/ConceptTable';
 
 
 /** Renders a table based on concepts */
