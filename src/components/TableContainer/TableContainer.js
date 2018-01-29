@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from 'prop-types';
 import styled from "styled-components";
 import { responsiveStyle } from 'styled-system';
+import ConceptTableR from "../ConceptTable/ConceptTableR";
 import ConceptTable from "../ConceptTable/ConceptTable";
 
 
@@ -21,7 +22,6 @@ const Flex = styled.div`
 // You can now call functions with `` and pass those arguments
 const Title = styled.h1`
   font-size: 1.5em;
-  text-align: center;
   color: palevioletred;
 `;
 
@@ -52,8 +52,7 @@ export default class TableContainer extends PureComponent {
                  render() {
                    return <Flex direction={["column"]}>
                        <Title>{this.props.title}</Title>
-                       <ConceptTable data={this.props.data} width={this.state.width} height={this.state.height/2} />
-                       <div>Graph</div>
+                       <ConceptTableR data={this.props.data} width={this.state.width} />
                      </Flex>;
                  }
                }
