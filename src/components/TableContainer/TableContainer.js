@@ -52,8 +52,8 @@ export default class TableContainer extends PureComponent {
                  render() {
                    return <Flex direction={["column"]}>
                        <Title>{this.props.title}</Title>
-                       <ConceptTable data={this.props.data} width={this.state.width} height={this.state.height} />
-                       <div>Hello</div>
+                       <ConceptTable data={this.props.data} width={this.state.width} height={this.state.height/2} />
+                       <div>Graph</div>
                      </Flex>;
                  }
                }

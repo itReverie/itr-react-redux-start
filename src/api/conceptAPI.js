@@ -1,6 +1,6 @@
 //TODO:This needs to be replaced for an API url
 const concepts = [
-  { id: 1, name: "Steve", debt: 200000 },
+  { id: 1, name: "Steve", debt: 200000, lastActivityDate: "6th June 2017" },
   { id: 2, name: "Damian", debt: 550000, lastActivityDate: "6th June 2017" },
   { id: 3, name: "Anna", debt: 130000, lastActivityDate: "6th June 2017" },
   { id: 4, name: "Olvia", debt: 200000, lastActivityDate: "6th June 2017" },
