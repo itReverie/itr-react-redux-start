@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import TableContainer from "./components/TableContainer/TableContainer";
 import {connect} from 'react-redux';
@@ -8,22 +8,27 @@ import PropTypes from 'prop-types';
 
 
 
-class App extends PureComponent {
+class App extends Component {
 
   constructor(props) {
 
       super(props);
+      if(this.props.concepts.length >0)
+      {
        this.state ={
          concepts: Object.assign({},this.props.concepts),
          errors: {}
        };
+      }
     }
 
   render() {
      console.log(this.props.concepts);
-    return (
-       <TableContainer data={this.props.concepts} />
-    )
+     let myComponent=null;
+     if (this.props.concepts) {
+       myComponent = <TableContainer data={this.props.concepts} />;
+     }
+    return <div>{myComponent}</div>;
   }
 }
 

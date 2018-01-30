@@ -4,6 +4,9 @@ import styled from "styled-components";
 import { responsiveStyle } from 'styled-system';
 import ConceptTableR from "../ConceptTable/ConceptTableR";
 import ConceptTable from "../ConceptTable/ConceptTable";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as conceptActions from "../../actions/conceptActions";
 
 
 const flexDirection = responsiveStyle({
@@ -25,51 +28,58 @@ const Title = styled.h1`
   color: palevioletred;
 `;
 
-/*
-<Title>{this.props.data.name}</Title>
-                       <ConceptTableR data={this.props.data} />
-                       <br />
-*/
-
 
 /** Container of a table so it manages the diplay in different sizes */
-export default class TableContainer extends PureComponent {
-                 constructor(props) {
-                   super(props);
-                   this.state = { width: 0, height: 0 };
-                   this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-                 }
+class TableContainer extends PureComponent {
+  // constructor(props) {
+  //   super(props);
+  //   console.log("constructor ", this.props.concepts.length);
+  //   if(this.props.concepts.length >0)
+  //     {
+  //   this.state = {
+  //     concepts: this.props.concepts,
+  //     errors: {}
+  //   };
+  // }
+  // }
 
-                 componentDidMount() {
-                   this.updateWindowDimensions();
-                   window.addEventListener("resize", this.updateWindowDimensions);
-                 }
-
-                 componentWillUnmount() {
-                   window.removeEventListener("resize", this.updateWindowDimensions);
-                 }
-
-                 updateWindowDimensions() {
-                   this.setState({
-                     width: window.innerWidth,
-                     height: window.innerHeight
-                   });
-                 }
-
-                 render() {
-
-                  console.log(this.props.data);
-                   return <Flex direction={["column"]}>
-                       <Title>{this.props.data.name}</Title>
-                       <br />
-                       <ConceptTableR data={this.props.data} />
-                       <br />
-                       <ConceptTable width={800} height={600} headerWidth={80} rowHeight={30} />
-                     </Flex>;
-                 }
-               }
+  render() {
+    console.log(this.props.concepts);
+     if(this.props.concepts.name != null)
+      {
+        console.log("Render ", this.props.concepts);
+    return <Flex direction={["column"]}>
+        <Title>{this.props.concepts.name}</Title>
+        <br />
+        <ConceptTableR table={this.props.concepts} />
+        <br />
+        <ConceptTable width={800} height={600} headerWidth={80} rowHeight={30} table={this.props.concepts} />
+      </Flex>;
+  }
+  else{return <div />}
+  }
+}
 
  TableContainer.propTypes = { 
-     /** information to render on the table */
-   data: PropTypes.array.isRequired,
- };
+   /** information to render on the table */
+   concepts: PropTypes.object.isRequired, 
+   actions: PropTypes.object.isRequired };
+
+
+
+ //-------------------------------------------------------------------
+//Redux connect section
+//-------------------------------------------------------------------
+function mapStateToProps(state) {
+  return {concepts: state.concepts};
+}
+
+
+function mapDispatchToProps (dispatch)
+{
+  return {
+    actions: bindActionCreators(conceptActions,dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TableContainer);

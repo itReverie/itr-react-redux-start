@@ -26,7 +26,7 @@ class conceptAPI {
   static getAllConcepts() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(Object.assign([], concepts));
+        resolve(Object.assign({}, concepts));
       });
     });
   }
