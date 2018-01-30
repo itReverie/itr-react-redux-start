@@ -19,6 +19,6 @@ store.dispatch(loadConcepts());
 ReactDOM.render(
   (<Provider store={store}>
     <Routes />
-    </Provider>),
+  </Provider>),
   document.getElementById('root'));
 registerServiceWorker();

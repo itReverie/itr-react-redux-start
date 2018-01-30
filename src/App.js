@@ -15,14 +15,14 @@ class App extends PureComponent {
       super(props);
        this.state ={
          concepts: Object.assign({},this.props.concepts),
-         title: 'Borrowers',
          errors: {}
        };
     }
 
   render() {
+     console.log(this.props.concepts);
     return (
-       <TableContainer data={this.props.concepts} title={this.state.title}/>
+       <TableContainer data={this.props.concepts} />
     )
   }
 }

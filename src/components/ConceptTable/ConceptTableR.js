@@ -7,33 +7,27 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 
 
-const StyledTable = styled(ReactTable)`
+const StyledReactTable = styled(ReactTable)`
+  width: 80%;
   display: flex;
   text-align: center;
-  flex-direction: row;
-  @media (min-width: 900px) {
-    flex-direction: column;
-  }
 `;
 
 export default class ConceptTableR extends PureComponent {
+  
   /** Renders a table based on concepts */
-  // TODO: At the moment is hardcoded but it will be dynamic
   render() {
-  return <ReactTable data={this.props.data}  style={{width:'80%'}}
-  columns={[{ Header: "First Name", id: "name", accessor: "name" }, 
-  { Header: "Debt", id: "debt", accessor: "debt" }, 
-  { Header: "Last Activity Date", id: "lastActivityDate", accessor: "lastActivityDate" }]} 
-  defaultPageSize={10} className="-striped -highlight" showPaginationBottom={true}/>;
+    const columns=[{ Header: "First Name", id: "name", accessor: "name" }, { Header: "Debt", id: "debt", accessor: "debt" }, { Header: "Last Activity Date", id: "lastActivityDate", accessor: "lastActivityDate" }];
+    return <StyledReactTable data={this.props.data.data} columns={columns} defaultPageSize={10} className="-striped -highlight" showPaginationBottom={true} />;
   }
 }
 
 ConceptTableR.propTypes = {
   /** information to render on the table */
-  data: PropTypes.array.isRequired,
-  width: PropTypes.number
+  data: PropTypes.array.isRequired
 };
 
 ConceptTableR.defaultProps = {
-  data: []
+    data: null
 };
+

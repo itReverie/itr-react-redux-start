@@ -25,6 +25,13 @@ const Title = styled.h1`
   color: palevioletred;
 `;
 
+/*
+<Title>{this.props.data.name}</Title>
+                       <ConceptTableR data={this.props.data} />
+                       <br />
+*/
+
+
 /** Container of a table so it manages the diplay in different sizes */
 export default class TableContainer extends PureComponent {
                  constructor(props) {
@@ -50,9 +57,14 @@ export default class TableContainer extends PureComponent {
                  }
 
                  render() {
+
+                  console.log(this.props.data);
                    return <Flex direction={["column"]}>
-                       <Title>{this.props.title}</Title>
-                       <ConceptTableR data={this.props.data} width={this.state.width} />
+                       <Title>{this.props.data.name}</Title>
+                       <br />
+                       <ConceptTableR data={this.props.data} />
+                       <br />
+                       <ConceptTable width={800} height={600} headerWidth={80} rowHeight={30} />
                      </Flex>;
                  }
                }
@@ -60,6 +72,4 @@ export default class TableContainer extends PureComponent {
  TableContainer.propTypes = { 
      /** information to render on the table */
    data: PropTypes.array.isRequired,
-    /** title for the information on the table */
-   title: PropTypes.string.isRequired
  };
