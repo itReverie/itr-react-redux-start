@@ -1,7 +1,7 @@
 //TODO:This needs to be replaced for an API url
 const concepts = {
   id: 1,
-  name: 'List of Borrowers',
+  table: 'List of Borrowers',
   columns: [
     { Header: "First Name", id: "name", accessor: "name" }, 
     { Header: "Debt", id: "debt", accessor: "debt" }, 
@@ -18,7 +18,26 @@ const concepts = {
   { id: 9, name: "Luke Wroblewski", debt: 130500, lastActivityDate: "16th June 2017" },
   { id: 10, name: "Dam Abramavov", debt: 120000, lastActivityDate: "26th June 2017" },
   { id: 11, name: "Catherine Gasson", debt: 75000, lastActivityDate: "6th June 2017" },
-  { id: 12, name: "Meghan Miller", debt: 13000, lastActivityDate: "6th June 2017" }]
+  { id: 12, name: "Meghan Miller", debt: 13000, lastActivityDate: "6th June 2017" }],
+  filter:{
+    col1: [ {
+                "name": "Olivia",
+                "operator": "equals"
+            }
+        ],
+        col2: [
+            {
+                "value": "val3",
+                "operator": "equals"
+            }
+        ],
+        col3: [
+            {
+                "min": 100,
+                "max": 200
+            }
+          ]
+  }
 };
 
 class conceptAPI {

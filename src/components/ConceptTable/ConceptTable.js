@@ -22,7 +22,7 @@ export default class ConceptTable extends Component {
                        {this.props.table.columns.map(column => (
                          <Column
                            id={column.accessor}
-                           width={100}
+                           width={150}
                            label={column.accessor}
                            dataKey={column.accessor}
                          />

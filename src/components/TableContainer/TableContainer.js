@@ -45,11 +45,11 @@ class TableContainer extends PureComponent {
 
   render() {
     console.log(this.props.concepts);
-     if(this.props.concepts.name != null)
+     if(this.props.concepts.table != null)
       {
         console.log("Render ", this.props.concepts);
     return <Flex direction={["column"]}>
-        <Title>{this.props.concepts.name}</Title>
+        <Title>{this.props.concepts.table}</Title>
         <br />
         <ConceptTableR table={this.props.concepts} />
         <br />
